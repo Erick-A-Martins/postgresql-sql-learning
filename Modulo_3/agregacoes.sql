@@ -84,4 +84,17 @@ SELECT category_id,
       COUNT(*) AS qtd_produtos
   FROM products
   GROUP BY category_id
-HAVING COUNT(*) > 5;
+HAVING COUNT(*) > 5; -- filtra grupos com mais de 5 produtos
+
+SELECT o.customer_id,
+       COUNT(o.order_id) AS total_pedidos_2024
+  FROM orders o
+  WHERE o.order_date BETWEEN '2024-01-01' AND '2024-12-31'
+  GROUP BY o.customer_id
+  HAVING COUNT(o.order_id) > 3;
+
+SELECT oi.product_id,
+       SUM(oi.quantity) AS unidades_vendidas
+  FROM order_items oi
+  GROUP BY oi.product_id
+  HAVING SUM(oi.quantity) > 3;
