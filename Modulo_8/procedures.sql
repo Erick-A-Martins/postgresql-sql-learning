@@ -38,4 +38,3 @@ BEGIN;
 	-- RAISE EXCEPTION 'Erro simulado';
 	
 COMMIT;
-COMMIT;
